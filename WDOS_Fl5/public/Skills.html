@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="page" content="home">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="icon" type="image/x-icon" href="computer_icon.png" />
+</head>
+
+<body class="skills_page">
+  <header id="nav_header">
+    <div>
+      
+       <a class="Contact" href="#contact">Contact</a>
+        
+      
+    </div>
+    
+    <nav>
+      <div>     
+       <ul class="nav_bar" id="nav_bar">
+         <li class="nav_button"><a href="index.html">Home</a></li>
+         <li class="nav_button"><a href="Skills.html">Skills</a></li>
+         <li class="nav_button"><a href="Qualifications.html">Qualifications</a></li>                     
+      </ul>
+     </div> 
+      <!--Burger menu for mobile view-->
+     <div class="burger">
+       <div class="line1"></div>
+       <div class="line2"></div>
+       <div class="line3"></div>
+     </div> 
+
+    </nav>
+    
+  </header>
+<main>
+    <article>
+        <section>
+          <!--Main container for content, for adjusting position-->
+            <div class="skills_container">
+
+                
+              <!--Explaining CSS and ECMAScript-->
+                <div class="skills_item">
+                    <h1 class="skills_item_title"> CSS/ECMAScript is awesome</h1>
+                  <!--CSS-->
+                    <p class="skills_text">Cascasding Styke Sheets-CSS is the language used for formatting webpages.
+                        CSS can make your webpages beautiful by adding colorful containers, changing your text fonts and styles,modifying your Images
+                        and even adding fancy animations!
+                    </p>
+              <!--ECMA-->
+                    <p class="skills_text">ECMAScript is the universal standard for the Javascript language across all web browers.
+                        Javascript helps developer to create dynamic websites based on the user's input by performing actions such as changing element styles,
+                        performing basic arithmetic operations and many more things.
+                    </p>
+              <!--Examples-->
+                    <p class="skills_text"> The examples below demonstrate how can CSS and Javascript help to make better webpages. The 2 CSS examples have the same HTML content but different appearance because different CSS styling </p>
+                </div>
+
+              <!--CSS example 1-->
+                <div class="skills_item">
+                    <h2 class="skills_item_title"> CSS example 1</h2>
+                        <p class="skills_text"><img src="skill_page1.PNG" class="skills_img" alt="Skill page 1" > In the first example, the page has an animation that plays at the top of the page. Each box container inside the main container is surrounded by white border. There are 3 images in the page with the 
+                        first and the third images float to the left of the textbox while the second image floats to the right.
+                        <a href="Skill1.html">Skill 1 page</a>
+                    </p>
+
+                        
+                </div>
+                <!--CSS example 2-->
+                <div class="skills_item">
+                    <h2 class="skills_item_title"> CSS example 2</h2>
+                        <p class="skills_text"><img src="skill_page2.PNG" class="skills_img" alt="skill page 2" > In the second example, several changes have been made to the pages. The animation at the top is different from the first example,the background and the container color are different.
+                            The text inside the pages has different color and font.All the images are rotated, the first and second image now float at different places while the third image is gone. There's no border surrounding the text in the main container unlike the first page.
+                        <a href="Skill2.html">Skill 2 page</a>
+                    </p>
+                </div>
+
+                <!--ECMAscript example-->
+                    <div class="skills_item">
+                        <h2 class="skills_item_title"> ECMAScript</h2>
+                            <p class="skills_text"><img src="ECMA_page.PNG" class="skills_img" alt="EMCA page" > A simple number guessing made by Javascript. The user will attempt to guess a number between 1 and 100. Based on the user's input the program will display a result box that changes its color based on how close the user's guess is to the hidden number.
+                                Once the user got the number correctly, the input field and the guess button will be disabled with the only active element left in the page is the restart button. 
+                            <a href="Guess_a_number.html">ECMAScript page</a>
+                        </p>
+                </div>
+ 
+
+            </div>
+        </section>
+    </article>
+</main>
+
+
+   <!--Footer section-->
+   <footer class="footer_container footer_text">
+    <!--Conctact list-->
+      <div  id="contact">
+      
+      
+      <ul class="contact_list"> 
+        <li><h2 class="footer_title "> Contact me</h2></li>
+  
+        <li class="contact_details"><img class="contact_img" src="phone_icon.png" alt="phone icon"> 8545963454 </li>
+        <li class="contact_details"><img  class="contact_img" src="mail_icon.png" alt="mail icon"> examplemail@gmail.com</li>
+        <li class="contact_details"><img  class="contact_img" src="linkein_icon.png" alt="linkin icon"> linkedin.com/in/someone</li>
+      </ul>    
+    </div>
+  <!--Why i don't check my email often content-->
+        <div class="footer_text footer_paragraph " >
+          <p > Please be aware that as a developer my line of work require me to commit to deep work for long period of time
+            to produce quality work. Because of this i don't check my inbox often and my respond time is slow so unless you have an important reason to contact me,
+            I will unlikely to respond your message on both my social media and email.Thank you for understanding
+          </p>
+        </div>
+    <!--Footer nav bar-->
+        <div id="nav_footer">
+          <nav>
+            <ul class="nav_footer_list">
+              <li class="nav_footer_button"><a href="index.html">Home</a></li>
+              <li class="nav_footer_button"><a href="Skills.html">Skills</a></li>
+              <li class="nav_footer_button"><a href="Qualifications.html">Qualifications</a></li>
+  
+            </ul>
+          </nav>
+        </div>  
+    </footer>
+
+
+    <!--Load scipts here-->
+<!--Mobile nav script-->
+  <script src="scripts/mobile_nav.js"></script>
+  
+</body>

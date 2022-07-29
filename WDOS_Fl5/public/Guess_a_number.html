@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ECMAScript</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/x-icon" href="computer_icon.png" />
+    
+</head>
+
+<header id="nav_header">
+  <div>
+    
+     <a class="Contact" href="#contact">Contact</a>
+    
+    
+  </div>
+  
+  <nav>
+    <div>
+  
+    <ul class="nav_bar" id="nav_bar" >
+      <li class="nav_button"><a href="index.html">Home</a></li>
+      <li class="nav_button"><a href="Skills.html">Skills</a></li>
+      <li class="nav_button"><a href="Qualifications.html">Qualifications</a></li>                  
+      
+    </ul>
+    </div> 
+   <div class="burger">
+     <div class="line1"></div>
+     <div class="line2"></div>
+     <div class="line3"></div>
+   </div> 
+
+  </nav>
+  
+</header>
+<body class="EMCA_page">
+<article>
+
+<h1 id="ECMA_Page_title">Guess The Number</h1>
+<h2 id="ECMA_Page_game">Please enter a number between 1 and 100</h2>
+<fieldset class="form">
+    
+    
+    <div>
+    
+    <label id="guess_label" for="guessField">ENTER A GUESS</label>
+    <input type="text" id="guessField" class="guessField">
+    </div>
+
+    <div>
+    <!-- <button class="EMCA_button" id="EMCA_button1" onclick="Random_number_guess()">GUESS</button>
+    <button class="EMCA_button" id="EMCA_button2" onclick="Restart()">RESTART</button> -->
+    <button class="EMCA_button" id="EMCA_button1" onclick="game()"> GUESS</button>
+    <button class="EMCA_button" id="EMCA_button2" onclick="Restart()">RESTART</button>
+    </div>
+
+
+
+</fieldset>
+<div id="result_box">   
+
+<div id="result">result</div>
+<div id="guess_count">You have guessed 0 time</div>
+</div>
+
+
+
+
+</article>
+
+<!--Footer section-->
+<footer class="footer_container footer_text">
+  <!--Conctact list-->
+    <div  id="contact">
+    
+    
+    <ul class="contact_list"> 
+      <li><h2 class="footer_title "> Contact me</h2></li>
+
+      <li class="contact_details"><img class="contact_img" src="phone_icon.png" alt="phone icon"> 8545963454 </li>
+      <li class="contact_details"><img  class="contact_img" src="mail_icon.png" alt="mail_icon"> examplemail@gmail.com</li>
+      <li class="contact_details"><img  class="contact_img" src="linkein_icon.png" alt="linkein icon"> linkedin.com/in/someone</li>
+    </ul>    
+  </div>
+<!--Why i don't check my email often content-->
+      <div class="footer_text footer_paragraph " >
+        <p > Please be aware that as a developer my line of work require me to commit to deep work for long period of time
+          to produce quality work. Because of this i don't check my inbox often and my respond time is slow so unless you have an important reason to contact me,
+          I will unlikely to respond your message on both my social media and email.Thank you for understanding
+        </p>
+      </div>
+  <!--Footer nav bar-->
+      <div id="nav_footer">
+        <nav>
+          <ul class="nav_footer_list">
+            <li class="nav_footer_button"><a href="index.html" >Home</a></li>
+            <li class="nav_footer_button"><a href="Skills.html">Skills</a></li>
+            <li class="nav_footer_button"><a href="Qualifications.html">Qualifications</a></li>
+
+          </ul>
+        </nav>
+      </div>  
+  </footer>
+<!--Load script here-->
+  <script src="scripts/Random_number.js"></script>
+  <script src="scripts/mobile_nav.js"></script>
+</body>
+</html>             

@@ -1,0 +1,941 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
+/*Global variable if i want to repeat them a bunch of times
+Good for saving sanity
+Used for nav bar and button for now*/
+:root{ 
+  --nav_header:'Lato';
+  --header_content_size: x-large;
+  --whitesmoke:whitesmoke;
+  --deepshadow:rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  --big_font:2rem;
+  --black_color:#333;
+  --dark_gray:#565656;
+  --round_img_radius:50%;
+  --aqua:aqua;
+  --yellowish:#ffd07f;
+  --dark_green:#228c22;
+  --true_black:black;
+}
+
+
+
+
+/*Change everything to border box for easier coding( better box adjusting)*/
+* {box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+ 
+  white-space: normal;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  /*Word break for all cases*/
+  -ms-word-break: break-all;
+  word-break: break-all;
+
+  /*Webkit may have different display with with word break so use this one
+  instead*/
+  word-break: break-word;
+
+  /*Add hyphens whenever possible*/
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+ margin: 0;
+  
+  
+}
+/* Navigation main container */
+.nav_bar {
+    list-style-type: none;
+    font-family: var(--nav_header);
+    
+  }
+/*For making nav sticky when scroll*/
+  .sticky_header {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 7;
+  }
+/*Containment element inside nav bar
+Use inline block to put all the element on 1 row*/  
+.nav_bar  li {
+    
+    display: inline-block;
+    padding:  0px 25px;
+  }
+  
+
+/*First element get more padding for better looking position*/  
+.nav_bar  li:nth-child(1) {
+    
+    padding-left: 20px;
+  } 
+
+/*Main button inside nav bar*/
+.nav_button  a {
+    
+    color: white;
+    text-align: center;
+    padding: 0px 16px;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+    font-family: var(--nav_font);
+    
+  }
+  
+ /* When hover upon nav bar  */
+  li a:hover {
+    color:var(--aqua);
+    cursor: pointer;
+  }
+
+  /*Header row, uses for container nav*/
+header{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--true_black);
+    justify-content:space-around;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    
+}
+
+/* Contact button */
+.Contact{
+   margin-right: 5rem;
+    padding: 9px 25px;
+    background-color: burlywood;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.5s ease;
+    font-family: var(--nav_font);
+    text-decoration: none;
+    color: var(--true_black);
+    
+}
+
+/* When hover upon contact button */
+.Contact:hover{
+    background-color: yellow;
+    cursor: pointer;
+}
+
+
+/*Hamburger menu*/
+.burger{
+  display: none;
+}
+.burger div
+{
+ top:20px; 
+ width: 25px;
+ height: 3px;
+ background-color: var(--whitesmoke); 
+ margin: 5px;
+ transition: all 0.3s ease ;
+ z-index: 11;
+}
+/*Quick fix for header nav bar covering main content
+By increaseing the margin top for content*/
+#Home,.skills_container{
+  margin-top: 2rem;
+}
+.EMCA_page article{
+  margin-top: 4rem;
+}
+/*Font,letter setting for nav bar*/
+/*Used comic sans to check if selector works in first place,switch to Lato later*/
+
+
+/*Container for header*/
+#Header_container_1{
+  display: flex;
+  height: 40vh;
+  width: 100%;
+  background-color: var(--dark_gray);
+  background-image: url(data:image/jpeg;base64,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);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color:orange;
+  text-align: center;
+  padding: 25px;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.header_pic1
+{
+border-radius: var(--round_img_radius);
+border: 5px solid var(--dark_gray);
+max-width: 20vw;
+max-height: 35vh;
+}
+
+.header1_item{
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+#header1_text{
+  font-size: 3.5rem;
+}
+/*Container for profile pic and introduction*/
+
+.header_text
+{
+  font-size: var(--header_content_size);
+}
+
+#Header_container_2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+  grid-template-areas: "title pic"
+                        "text  pic";
+  background-color: var(--black_color);
+  justify-content: center;
+  max-height: 20rem;
+  text-align: center;
+  border: 1px gray;
+  box-shadow: var(--deepshadow);
+  color: var(--whitesmoke);
+}
+
+#Header_container2 h1 p{
+  text-align: center;
+}
+#profile_pic{
+  max-width: 40vw;
+  max-height: 38vh;
+  margin-top: 1rem;
+  grid-column: 2;
+  position:relative;
+  margin-left: 15rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  grid-area: pic;
+  border-radius: var(--round_img_radius);
+border: 5px solid var(--dark_gray)
+  
+}
+
+#Header_title2{
+  position: relative;
+  margin-left: 11rem;
+  margin-top: 3rem;
+  grid-area: title;
+  align-items: center ;
+  font-size: xx-large;
+  
+  
+}
+
+#Header_text2{
+  grid-area: text;
+  margin-left: 9rem;
+  margin-bottom: 2rem;
+  
+}
+
+
+
+/*Empty box to use as gap between content box*/
+.gap
+{
+ display: block;
+ height: 3rem;
+}
+
+/*My services content box*/
+
+
+
+#Header_container3
+{ display: grid;
+  grid-template-areas: "pic title title"
+                       "pic cont1 cont1"
+                        "pic ctitle1 ctitle2 "
+                        "pic cont2 cont3 " ;
+  background-color: var(--black_color);
+  box-shadow: var(--deepshadow);
+  text-align: center;
+  
+  color: var(--whitesmoke);
+  
+}
+
+/*Titles*/
+#Header_title3
+{
+grid-area: title;
+margin-left: 2rem;
+font-size: 2rem;
+}
+
+/*Text for title*/
+#header_text3
+{
+ grid-area: cont1;
+ top: -20rem;
+}
+#content_title1
+{
+  grid-area: ctitle1;
+}
+
+#content_title2
+{
+  grid-area: ctitle2;
+}
+
+#content1
+{
+  grid-area: cont2;
+  
+  
+}
+
+.content_item
+{
+  padding: 1rem;
+  font-size: var(--big_font);
+}
+#Header_pic2
+{
+  grid-area: pic;
+}
+
+
+/*Sources list*/
+.sources_container{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--black_color);
+  color: var(--whitesmoke);
+  box-shadow: var(--deepshadow);
+}
+
+.sources_title{
+  margin-top: 5.5rem;
+  font-size: 4rem;
+}
+
+.sources_list li a{
+  font-size: var(--header_content_size);
+  color: var(--whitesmoke);
+}
+
+.sources_list li a:hover{
+  color: palevioletred;
+}
+/*Home page Footer*/
+
+.footer_container
+{
+background-color: var(--dark_gray);
+display: flex;
+justify-content: space-evenly;
+flex-direction: row;
+position:static;
+width: 100%;
+bottom: 0;
+left: 0;
+right: 0;
+}
+
+/*Quick fix for footer in other pages because it somehow float and leave an empty space under it*/
+.qualification_page footer, .EMCA_page footer{
+  position: fixed;
+  
+}
+.footer_title{
+  margin-bottom: 2rem;
+}
+.footer_text{
+  color: var(--whitesmoke);
+}
+.contact_list{
+color: var(--whitesmoke);
+list-style: none;
+}
+.contact_img
+{
+  max-width: 2vh;
+  max-height: 2vw;
+}
+
+/*Footer nav bar*/
+.nav_footer_list
+{
+ font-size: 30px; 
+ list-style: none;
+}
+
+.nav_footer_list li{
+  padding: 5px;
+  font-family: var(--nav_header);
+}
+.nav_footer_list li a{
+  text-decoration: none;
+  color: var(--whitesmoke);
+  
+}
+
+.nav_footer_list li a:hover{
+  color: var(--aqua);
+}
+.footer_paragraph
+{
+  max-width: 20rem;
+}
+
+
+
+/*sERVICES*/
+
+/*Testimonials*/
+/*Skills page*/
+.skills_page{
+  background-color: var(--aqua);
+}
+
+.skills_container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 5rem ;
+  margin-right: 5rem;
+  background-color: var(--black_color);
+  padding:1rem;
+}
+
+.skills_item{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  color: var(--whitesmoke);
+  border: 4px var(--whitesmoke) solid;
+  padding: 1rem;
+}
+
+.skills_item_title{
+  font-size: var(--header_content_size);
+  align-self: center;
+}
+
+.skills_text, .skills_text a{
+  font-size: 2rem;
+  justify-self: center;
+} 
+
+.skills_text a{
+   color: var(--aqua);
+   
+}
+.skills_img{
+  float: right;
+  max-width: 50vw;
+  max-height: 50vh;
+  margin-left: 1rem;
+}
+/*Qualifications page*/
+.qualification_page{
+  background-color: var(--dark_green);
+}
+
+.qualification_title{
+  text-align: center;
+}
+.table_container{
+  display: flex;
+ 
+ 
+  margin: 10px 70px 70px;
+  
+}
+.qualification_table
+{
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color: white;
+  
+}
+
+.qualification_table, .row_header_item,.row_body_item{
+  border: 1px solid var(--black_color); 
+}
+
+
+
+.qualification_table td, .qualification_table th {
+  text-align: center;
+  padding: 8px;
+}
+
+.qualification_table thead th
+{
+  color: #ffffff;
+    background: violet;
+}
+
+.qualification_table thead th:nth-child(odd)
+{
+  background: cyan;
+}
+
+.qualification_table tbody tr:nth-child(even){
+  background: #4FC3A1;
+}
+
+
+/*Javascript page*/
+.EMCA_page{
+  background-color: aquamarine;
+}
+
+#ECMA_Page_title{
+  font-size: xx-large;
+  
+  text-align: center;
+}
+
+.form{
+  display: grid;
+  max-height: 25vh;
+  max-width: 27vw;
+  margin: 0 auto;
+  grid-template-rows:  1fr   ;
+  background-color: #ffd07f;
+  
+
+}
+
+#guess_label{
+  margin-left: 3rem;
+}
+#ECMA_Page_game{
+ text-align: center;
+ font-size: large;
+}
+ /*Buttons for the EMCA pages*/
+.EMCA_button
+{
+  position: relative;
+  border: 2px solid;
+  transition: all 0.4s ease 0s;
+  background-color: #2abdff;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+ /*Guess button*/
+
+ #EMCA_button1{
+  
+  margin-left: 0rem;
+  top: 2.5rem;
+  z-index: 1;
+  
+ }  
+  /*Restart button*/
+
+ #EMCA_button2{
+  
+  margin-left: 18rem;
+  z-index: 1;
+  
+  
+} 
+
+.EMCA_button:hover{
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+}
+
+/* #EMCA_button2:hover {
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+} */
+
+#result_box{
+  
+  display: none;
+  position: relative;
+  border: 2px solid;
+  background: white;
+  max-width:27vw;
+  text-align: center;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+  
+  
+}
+
+
+/*Responsiveness*/
+
+/*for small devices*/
+
+/*Tablet*/
+/*Phone*/
+@media screen and (max-width: 800px) {
+
+  /*nav bar*/
+  .index_page,.EMCA_page,.qualification_page,.skills_page {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  /*Nav bar sticky on mobile*/
+  .sticky_nav{
+    position: fixed !important;
+    
+    top: 2vh;
+    z-index: 7;
+  }
+  .nav_bar{
+    position: absolute;
+    right: 0px;
+    height:75vh ;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+    display: none;
+    transition: transform 0.5s ease-in;
+    z-index: 7;
+    top: 3rem;
+  }
+.nav_bar li{
+  opacity: 0;
+  z-index: 7;
+}
+
+.burger{
+  display: block;
+  cursor: pointer;
+  z-index: 11;
+}
+
+.nav_active{
+  transform: translateX(0%) !important;
+  display: flex;
+}
+
+/*Slide Animation for burger mobile menu*/ 
+@keyframes navBarFade{
+  from{
+    opacity:0;
+    transform: translateX(50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.toggle .line1{
+   transform: rotate(-45deg) translate(-5px,6px);
+   z-index: 99;
+}
+
+.toggle .line2{
+opacity: 0;
+}
+
+.toggle .line3{
+  transform: rotate(45deg) translate(-5px,-6px);
+  z-index: 99;
+}
+
+/*Footer*/
+.footer_container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: static !important;
+  height: 100%;
+}
+
+.qualification_page footer{
+  margin-top: 35rem;
+}
+
+.EMCA_page footer{
+  margin-top: 25rem;
+}
+
+.footer_text{
+  font-size: 18px;
+  margin-top: 1rem;
+}
+.footer_title{
+ margin-left: 5rem;
+}
+.contact_details{
+  margin-right: 7rem;
+}
+
+.contact_img{
+  
+  max-height: 2rem;
+}
+
+.nav_footer_list li{
+  padding-right: 8rem;
+  
+}
+
+/*Home page*/
+
+/*Header section*/
+#Header_container_1{
+  display: flex;
+  flex-direction: column-reverse;
+  height: 60vh;
+}
+
+#header1_text{
+  font-size: 2rem;
+}
+
+.header_pic1{
+  max-width: 45vw;
+  max-height: 45vh;
+}
+
+/*About me*/
+#Header_container_2{
+  display: grid;
+  grid-template-areas: "title"
+                        "pic"
+                        "text";
+  align-items: center;
+  justify-items: center;
+  max-height: 38rem;
+  padding-right: 8rem;
+  width: 100%;
+}
+
+#profile_pic{
+  max-width: 15rem;
+  max-height: 15rem;
+  margin-right: 5rem;
+}
+
+#Header_text2{
+  text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 1rem;
+}
+
+/*My services section*/
+#Header_container3{
+  grid-template-areas: "title"
+                    "pic"
+                    "cont1"
+                    "ctitle1"
+                    "cont2"
+                    "ctitle2"
+                    "cont3";
+}
+
+#Header_pic2{
+  
+  height: 40vh;
+  margin-left: 3rem;
+  
+}
+
+#Header_title3{
+  margin-left: 0.5rem;
+  
+}
+
+/*Sources content*/
+.sources_container{
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+
+.sources_title{
+  margin-left: 5rem;
+  margin-top: 2rem;
+}
+
+
+/*Qualifications page*/
+
+.table_container{
+  margin-left: 0;
+  margin-right: 0;
+  align-items: center;
+}
+
+.qualification_table{
+  background-color: aliceblue;
+  width: 100%;
+}
+.qualification_table th{
+  display: none;
+}
+
+.qualification_table,.qualification_table tbody,.qualification_table tr,.qualification_table td,.qualification_table tfoot{
+  display: block;
+  width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  font-size: 18px;
+}
+
+.qualification_table tr{
+  margin-bottom: 15px;
+}
+
+
+.qualification_table td{
+  text-align:  right;
+  padding-left: 50%;
+  position: relative;
+}
+
+.qualification_table td::before{
+  content: attr(data-label);
+  position: absolute;
+  right:16rem;
+  width: 50%;
+  font-weight: bold;
+}
+
+/*Skills page*/
+
+.skills_container{
+  margin-left: 1rem;
+  margin-right: 1rem;
+  
+}
+ .skills_text{
+  font-size: 18px;
+ }
+
+ .skills_img{
+  max-width: 70vw;
+  max-height: 70vh;
+  margin-left: 1rem;
+  float: none;
+ }
+
+ .skills_container{
+  padding: 0;
+ }
+/*ECMA pages*/
+.form{
+  max-width: 8rem;
+  height: 12rem;
+  grid-template-rows: 0.5fr;
+}
+
+#guess_label{
+  margin-left: 3.5rem;
+}
+
+#guessField{
+  font-size: 18px;
+}
+#EMCA_button1{
+  margin-left: 1rem;
+}
+
+#EMCA_button2{
+  margin-left: 8rem;
+  
+}
+
+#result_box{
+  max-width: 70vw;
+}
+}
+
+
+
+
+/*Big screen*/
+
+
+  @media screen and (min-width:1595px) {
+  /*Homepage*/
+
+  /*Container2*/
+
+  #profile_pic{
+    max-width: 55vw;
+    max-height: 35vh;
+    bottom: 1rem;
+  }
+
+  #Header_container_2{
+    max-height: 35rem;
+    padding-left: 20rem;
+    padding-top: 1rem ;
+  }
+
+  /*Header container 1*/
+  .header_pic1{
+    max-width: 30rem;
+    max-height: 30rem;
+    
+  }
+
+  /*EMCA script page*/
+  .form{
+    max-width: 28.5rem;
+    padding-left: 2rem;
+    
+  }
+
+  
+    .EMCA_button2{
+      margin-left:25rem;
+    }
+ 
+     label{
+      margin-left: 3rem;
+     }
+
+     #result_box
+     {
+      max-width: 28.5rem;
+     }
+      
+     
+} 
